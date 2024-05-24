@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "title": "Amadla Entity Configuration",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "Application",
+        "Server",
+        "Cloud",
+        "VM",
+        "Network"
+      ]
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "volumes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "path"]
+      }
+    },
+    "network": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "port": {
+            "type": "integer"
+          },
+          "protocol": {
+            "type": "string",
+            "enum": ["tcp", "udp"]
+          }
+        },
+        "required": ["port"]
+      }
+    }
+  },
+  "required": ["entity", "name", "description", "category"]
+}

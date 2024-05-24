@@ -1,0 +1,22 @@
+{
+  "allOf": [
+    {
+      "$ref": "amadla:github.com/AmadlaOrg/Entity/WebServer$v1"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "webserver:NGiNX": {
+          "type": "object",
+          "properties": {
+            "endpoint": {
+              "type": "string"
+            }
+          },
+          "required": ["endpoint"]
+        }
+      },
+      "required": ["webserver"]
+    }
+  ]
+}
