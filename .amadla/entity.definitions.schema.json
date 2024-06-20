@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "https://raw.githubusercontent.com/AmadlaOrg/Entity/master/.amadla/entity.definitions.schema.json",
+  "title": "Entity Definitions Schema",
+  "description": "Defines the definitions of entity section.",
+  "definitions": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "entity": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "additionalProperties": {
+        ".+": {
+          "type": "any"
+        }
+      },
+      "required": ["entity"]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+entity: "github.com/AmadlaOrg/Entity$v1"
+name: Blog
+description: The Blog definition.
+category: Application
+tags:
+  - blog
+  - website
+require:
+  - entity: "github.com/AmadlaOrg/Application$v1"
+    healthcheck:
+      - time: "2024-06-18T12:00:00Z"
+  - entity: "github.com/AmadlaOrg/EntitySystem/Net$v1"
+    ports:
+     - 80
+     - 443
+  - entity: "github.com/AmadlaOrg/EntitySystem/Storage$v1"
+    diskspace: "5gb"

@@ -1,6 +1,8 @@
 {
-  "$schema": "https://json-schema.org/draft-07/schema#",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "https://raw.githubusercontent.com/AmadlaOrg/Entity/master/.amadla/schema.json",
   "title": "Amadla Entity Configuration",
+  "description": "Defines the foundational properties of an Entity configuration file.",
   "type": "object",
   "properties": {
     "entity": {
@@ -8,58 +10,47 @@
       "format": "uri"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]*$",
+      "description": "Define the Amadla entity name."
     },
     "description": {
-      "type": "string"
+      "type": "string",
+      "description": "Define the Amadla entity description."
     },
     "category": {
       "type": "string",
-      "enum": [
-        "Application",
-        "Server",
-        "Cloud",
-        "VM",
-        "Network"
-      ]
+      "description": ""
     },
     "tags": {
       "type": "array",
+      "description": "Used for organizing the entities.",
       "items": {
         "type": "string"
       }
     },
-    "volumes": {
+    "require": {
       "type": "array",
+      "description": "Required entities for an entity.",
       "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "path": {
-            "type": "string"
-          }
-        },
-        "required": ["name", "path"]
+        "$ref": "#/definitions/entity"
       }
     },
-    "network": {
+    "optional": {
       "type": "array",
+      "description": "Optional entities for an entity.",
       "items": {
-        "type": "object",
-        "properties": {
-          "port": {
-            "type": "integer"
-          },
-          "protocol": {
-            "type": "string",
-            "enum": ["tcp", "udp"]
-          }
-        },
-        "required": ["port"]
+        "$ref": "#/definitions/entity"
       }
     }
   },
-  "required": ["entity", "name", "description", "category"]
+  "required": [
+    "entity",
+    "name",
+    "description",
+    "category"
+  ],
+  "definitions": {
+    "$ref": "https://raw.githubusercontent.com/AmadlaOrg/Entity/master/.amadla/entity.definitions.schema.json#/definitions/entity"
+  }
 }

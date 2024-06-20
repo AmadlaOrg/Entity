@@ -1,4 +1,3 @@
----
 entity: "github.com/AmadlaOrg/Entity$v1"
 name: Entity
 description: The root Entity definition.
