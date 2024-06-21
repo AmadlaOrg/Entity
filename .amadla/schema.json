@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "id": "https://raw.githubusercontent.com/AmadlaOrg/Entity/master/.amadla/schema.json",
+  "title": "Amadla Entity Configuration",
+  "description": "Defines the foundational properties of an Entity configuration file.",
+  "type": "object",
+  "properties": {
+    "entity": {
+      "type": "string",
+      "format": "uri"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9_-]*$",
+      "description": "Define the Amadla entity name."
+    },
+    "description": {
+      "type": "string",
+      "description": "Define the Amadla entity description."
+    },
+    "category": {
+      "type": "string",
+      "description": ""
+    },
+    "tags": {
+      "type": "array",
+      "description": "Used for organizing the entities.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "require": {
+      "type": "array",
+      "description": "Required entities for an entity.",
+      "items": {
+        "$ref": "#/definitions/entity"
+      }
+    },
+    "optional": {
+      "type": "array",
+      "description": "Optional entities for an entity.",
+      "items": {
+        "$ref": "#/definitions/entity"
+      }
+    }
+  },
+  "required": [
+    "entity",
+    "name",
+    "description",
+    "category"
+  ],
+  "definitions": {
+    "$ref": "https://raw.githubusercontent.com/AmadlaOrg/Entity/master/.amadla/entity.definitions.schema.json#/definitions/entity"
+  }
+}
