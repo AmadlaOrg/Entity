@@ -5,7 +5,7 @@
   "description": "Defines the foundational properties of an Entity configuration file.",
   "type": "object",
   "properties": {
-    "entity": {
+    "_entity": {
       "type": "string",
       "format": "uri"
     },
@@ -45,7 +45,7 @@
     }
   },
   "required": [
-    "entity",
+    "_entity",
     "name",
     "description",
     "category"

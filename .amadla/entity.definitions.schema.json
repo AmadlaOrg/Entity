@@ -4,10 +4,10 @@
   "title": "Entity Definitions Schema",
   "description": "Defines the definitions of entity section.",
   "definitions": {
-    "entity": {
+    "_entity": {
       "type": "object",
       "properties": {
-        "entity": {
+        "_entity": {
           "type": "string",
           "format": "uri"
         }
@@ -17,7 +17,7 @@
           "type": "any"
         }
       },
-      "required": ["entity"]
+      "required": ["_entity"]
     }
   }
 }
